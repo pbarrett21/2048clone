@@ -1,0 +1,7 @@
+<div class="tile">
+<!--     [style]="animateTile(tileInfo)"-->
+  <div class="tile-number"
+       [ngClass]="determineStyle(tileInfo)">
+    {{tileInfo.number !== 0 ? tileInfo.number : ''}}
+  </div>
+</div>

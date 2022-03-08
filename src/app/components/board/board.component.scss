@@ -1,0 +1,21 @@
+.board {
+  background-color: rgb(187 172 159);
+  padding: 5px;
+  border-radius: 5px;
+  width: 415px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+app-tile {
+  height: 100px;
+  width: 100px;
+}

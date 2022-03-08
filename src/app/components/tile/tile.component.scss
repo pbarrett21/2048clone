@@ -1,0 +1,72 @@
+.tile {
+  display: flex;
+  transition: 100ms ease-in-out;
+  transition-property: transform;
+}
+
+.tile-number {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  //border: 2px solid rgb(187 172 159);
+  border-radius: 5px;
+  margin: 0;
+  z-index: 10;
+  font-size: xxx-large;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  color: #f9f6f2;
+}
+
+.original {
+  background-color: rgba(238, 228, 218, 0.35);
+}
+
+.tile-2 {
+  color: #776e65;
+  background-color: #eee4da;
+}
+
+.tile-4 {
+  color: #776e65;
+  background-color: #eee1c9;
+}
+
+.tile-8 {
+  background-color: #f3b27a;
+}
+
+.tile-16 {
+  background-color: #f69664;
+}
+
+.tile-32 {
+  background-color: #f77c5f;
+}
+
+.tile-64 {
+  background-color: #f75f3b;
+}
+
+.tile-128 {
+  background-color: #edd073;
+}
+
+.tile-256 {
+  background-color: #edcc62;
+}
+
+.tile-512 {
+  background-color: #edc950;
+}
+
+.tile-1024 {
+  background-color: #edc53f;
+}
+
+.tile-2048 {
+  background-color: #edc22e;
+}
+
