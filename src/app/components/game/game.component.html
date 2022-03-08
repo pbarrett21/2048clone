@@ -1,1 +1,23 @@
-<app-board></app-board>
+<div class="game">
+  <div class="game-header">
+    <div class="left-header">
+      <h1>2048</h1>
+      <span>Join the tiles, get to 2048!</span>
+    </div>
+    <div class="right-header">
+      <div class="score-best">
+        <div class="show-score-best">
+          <h3>Score</h3><span>{{gameState.gameScore}}</span>
+        </div>
+        <div class="show-score-best">
+          <h3>Best</h3><span>{{gameState.bestScore}}</span>
+        </div>
+      </div>
+      <div class="new-game">
+        <button (click)="startNewGame()">New Game</button>
+      </div>
+    </div>
+  </div>
+  <app-board [boardState]="gameState.boardState"></app-board>
+</div>
+<h1 *ngIf="gameState.isGameOver">{{gameState.largestTile >= gameState.winThreshold ? 'You WIN!' : 'Game over!'}}</h1>

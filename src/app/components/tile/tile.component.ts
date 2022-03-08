@@ -1,11 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-
-export interface TileInfo {
-  number: number;
-  color: string;
-  location: {row: number, col: number};
-  moveAmount: {x: number, y: number};
-}
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {TileInfo} from '../../models/TileInfo';
 
 @Component({
   selector: 'app-tile',

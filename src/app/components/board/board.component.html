@@ -1,10 +1,7 @@
 <div class="board">
   <div *ngFor="let row of boardState" class="row">
     <div *ngFor="let cell of row">
-      <app-tile [tileInfo]="cell" (click)="moveLeft()"></app-tile>
+      <app-tile [tileInfo]="cell" (click)="logicService.moveLeft()"></app-tile>
     </div>
   </div>
 </div>
-<h1>Score: {{this.gameScore}}</h1>
-<h1 *ngIf="isGameOver()">{{this.largestTile >= this.winThreshold ? 'You WIN!' : 'Game over!'}}</h1>
-<p>Largest tile: {{this.largestTile}}</p>

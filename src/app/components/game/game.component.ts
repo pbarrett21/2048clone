@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {GameData} from '../../models/GameData';
+import {LogicService} from '../../services/logic.service';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent {
 
-  constructor() { }
+  @Input() gameState: GameData = {} as GameData;
 
-  ngOnInit(): void {
+  constructor(private logicService: LogicService) {
   }
 
+  startNewGame() {
+    this.gameState = this.logicService.startNewGame();
+  }
 }

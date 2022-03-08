@@ -11,7 +11,7 @@ import { GameComponent } from './components/game/game.component';
     AppComponent,
     BoardComponent,
     TileComponent,
-    GameComponent
+    GameComponent,
   ],
   imports: [
     BrowserModule
