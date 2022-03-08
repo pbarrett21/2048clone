@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {TileInfo} from '../../models/TileInfo';
 
 @Component({
@@ -9,7 +9,9 @@ import {TileInfo} from '../../models/TileInfo';
 export class TileComponent implements OnChanges {
 
   @Input() tileInfo: TileInfo = {} as TileInfo;
-  @Output() animationFinished = new EventEmitter();
+
+  // animation on hold
+  // @Output() animationFinished = new EventEmitter();
 
   constructor() { }
 
@@ -18,9 +20,9 @@ export class TileComponent implements OnChanges {
     return 'original'
   }
 
-  animateTile(tileInfo: TileInfo): string {
-    return `transform: translate(${tileInfo.moveAmount.x * 105}px, 0px)`;
-  }
+  // animateTile(tileInfo: TileInfo): string {
+  //   return `transform: translate(${tileInfo.moveAmount.x * 105}px, 0px)`;
+  // }
 
   ngOnChanges(changes: SimpleChanges): void {
   }

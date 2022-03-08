@@ -18,6 +18,5 @@
       </div>
     </div>
   </div>
-  <app-board [boardState]="gameState.boardState"></app-board>
+  <app-board [boardState]="gameState.boardState" (tryAgain)="startNewGame()"></app-board>
 </div>
-<h1 *ngIf="gameState.isGameOver">{{gameState.largestTile >= gameState.winThreshold ? 'You WIN!' : 'Game over!'}}</h1>

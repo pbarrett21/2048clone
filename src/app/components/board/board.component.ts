@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TileInfo} from '../../models/TileInfo';
 import {LogicService} from '../../services/logic.service';
 
@@ -10,8 +10,13 @@ import {LogicService} from '../../services/logic.service';
 export class BoardComponent {
 
   @Input() boardState: TileInfo[][] = [];
+  @Output() tryAgain: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(public logicService: LogicService) {
+  }
+
+  startNewGame() {
+    this.tryAgain.emit(true);
   }
 
 }

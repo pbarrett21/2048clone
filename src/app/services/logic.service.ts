@@ -13,9 +13,6 @@ export class LogicService {
   winThreshold: number = 2048;
   bestScore: number = 0;
 
-  constructor() {
-  }
-
   startNewGame(): GameData {
     this.clearBoard();
     this.createBoard();
@@ -35,6 +32,7 @@ export class LogicService {
     this.boardState = [];
     this.largestTile = 0;
     this.gameScore = 0;
+    this.winThreshold = 2048;
   }
 
   createBoard(): void {
@@ -78,7 +76,6 @@ export class LogicService {
     if (!this.isGameOver() && this.didAnyTilesMove(beforeBoard, afterBoard)) {
       this.createNewTileAfterMove();
     } else {
-      console.error('=============> game over or current move choice not possible');
       if (this.isGameOver()) {
         this.bestScore = this.gameScore > this.bestScore ? this.gameScore : this.bestScore;
       }
@@ -162,6 +159,7 @@ export class LogicService {
       if (rowTiles[i].number !== 0 && rowTiles[i - 1].number === rowTiles[i].number) {
         rowTiles[i].number = rowTiles[i - 1].number * 2;
         this.gameScore += rowTiles[i - 1].number * 2;
+        this.bestScore = this.gameScore > this.bestScore ? this.gameScore : this.bestScore;
         rowTiles[i - 1].number = 0;
       }
     }
@@ -250,6 +248,18 @@ export class LogicService {
 
   transposeBoard(): TileInfo[][] {
     return this.boardState[0].map((col, i) => this.boardState.map(row => row[i]));
+  }
+
+  isGameLost(): boolean {
+    return this.isGameOver() && this.largestTile < this.winThreshold;
+  }
+
+  isGameWon(): boolean {
+    return this.largestTile >= this.winThreshold;
+  }
+
+  keepPlaying(): void {
+    this.winThreshold = 100000000;
   }
 
 }

@@ -27,8 +27,6 @@ export class AppComponent implements OnInit {
       case 'ArrowDown':
         this.gameState = this.logicService.moveDown();
         break;
-      default:
-        console.error('=============>', event.key);
     }
   }
 

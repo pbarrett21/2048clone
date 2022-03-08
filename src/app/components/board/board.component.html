@@ -1,4 +1,12 @@
 <div class="board">
+  <div *ngIf="logicService.isGameLost()" class="game-over">
+    <h1>Game Over!</h1>
+    <button (click)="startNewGame()">Try Again</button>
+  </div>
+  <div *ngIf="logicService.isGameWon()" class="game-over">
+    <h1>You win!</h1>
+    <button (click)="logicService.keepPlaying()">Keep Playing</button>
+  </div>
   <div *ngFor="let row of boardState" class="row">
     <div *ngFor="let cell of row">
       <app-tile [tileInfo]="cell" (click)="logicService.moveLeft()"></app-tile>
