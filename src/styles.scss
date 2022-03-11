@@ -2,10 +2,4 @@
 body {
   background-color: #faf8ef;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-
-  // prevent scroll for touch screens
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
-  position: fixed;
 }
