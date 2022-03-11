@@ -47,7 +47,19 @@
   margin-bottom: 0;
 }
 
-app-tile {
-  height: 100px;
-  width: 100px;
+//app-tile {
+//  height: 100px;
+//  width: 100px;
+//}
+
+@media only screen and (max-width: 520px) {
+  .board {
+    width: 355px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .board {
+    width: 271px;
+  }
 }
