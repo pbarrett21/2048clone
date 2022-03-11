@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   gameState: GameData | undefined;
   defaultTouch = { x: 0, y: 0, time: 0 };
+  touchLog: any[] = [];
 
   @HostListener('document:keydown', ['$event'])
   @HostListener('touchstart', ['$event'])
@@ -58,6 +59,8 @@ export class AppComponent implements OnInit {
         y: touch.pageY,
         time: event.timeStamp
       };
+      this.touchLog.push(this.defaultTouch);
+      console.error('=============> this.touchLog: ', this.touchLog);
     } else if (event.type === 'touchend') {
       let deltaX = touch.pageX - this.defaultTouch.x;
       let deltaY = touch.pageY - this.defaultTouch.y;
