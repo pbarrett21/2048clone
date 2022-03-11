@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {LogicService} from './services/logic.service';
 import {GameData} from './models/GameData';
 
@@ -10,20 +10,12 @@ import {GameData} from './models/GameData';
 export class AppComponent implements OnInit {
 
   gameState: GameData | undefined;
-  defaultTouch = { x: 0, y: 0, time: 0 };
-  touchLog: any[] = [];
+  defaultTouch = {x: 0, y: 0, time: 0};
 
   @HostListener('document:keydown', ['$event'])
-  @HostListener('touchstart', ['$event'])
-  @HostListener('touchend', ['$event'])
-  handleKeyboardOrSwipeEvent(event: any) {
+  handleKeyboardEvent(event: KeyboardEvent) {
     if (this.logicService.isGameOver()) return;
-    if (event.type === 'keydown') {
-      this.handleKeyBoardEvent(event);
-    }
-    if (event.type === 'touchstart' || event.type === 'touchend') {
-      this.handleSwipeEvent(event);
-    }
+    this.handleKeyBoardEvent(event);
   }
 
   constructor(public logicService: LogicService) {
@@ -59,8 +51,6 @@ export class AppComponent implements OnInit {
         y: touch.pageY,
         time: event.timeStamp
       };
-      this.touchLog.push(this.defaultTouch);
-      console.error('=============> this.touchLog: ', this.touchLog);
     } else if (event.type === 'touchend') {
       let deltaX = touch.pageX - this.defaultTouch.x;
       let deltaY = touch.pageY - this.defaultTouch.y;

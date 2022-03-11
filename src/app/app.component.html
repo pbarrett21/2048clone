@@ -1,4 +1,4 @@
-<app-game *ngIf="gameState" [gameState]="gameState"></app-game>
+<app-game *ngIf="gameState" [gameState]="gameState" (touchstart)="handleSwipeEvent($event)" (touchend)="handleSwipeEvent($event)"></app-game>
 <p class="signature">
   <span>
     Inspired by the original <a href="https://play2048.co/" target="_blank">2048 game</a>
@@ -6,7 +6,4 @@
   <span>
     Built for fun by <a href="https://pbarrett21.github.io/" target="_blank">Paul Barrett</a>
   </span>
-</p>
-<p *ngFor="let touch of touchLog">
-  {{touch | json}}
 </p>
