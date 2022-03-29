@@ -17,4 +17,6 @@ export class GameComponent {
   startNewGame() {
     this.gameState = this.logicService.startNewGame();
   }
+
+  isTouchEnabled = () => ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 }

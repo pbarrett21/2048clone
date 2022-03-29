@@ -20,7 +20,10 @@
   </div>
   <app-board [boardState]="gameState.boardState" (tryAgain)="startNewGame()"></app-board>
   <p class="game-instructions">
-    <b>How to play:</b> Use your <b>arrow keys</b> to move the tiles. Tiles with the same
+    <b>How to play: </b>
+    <span *ngIf="!isTouchEnabled()">Use your <b>arrow keys</b></span>
+    <span *ngIf="isTouchEnabled()"><b>Swipe</b></span>
+    to move the tiles. Tiles with the same
     number <b>merge into one</b> when they touch. Add them up to reach <b>2048!</b>
   </p>
 </div>
